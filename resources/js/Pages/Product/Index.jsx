@@ -11,7 +11,7 @@ import TextInput from '@/Components/TextInput';
 import { Inertia } from "@inertiajs/inertia";
 
 function Index({products, categories, filters}) {
-console.log(filters.search)
+
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState(filters.search);
   const { 
@@ -45,6 +45,7 @@ console.log(filters.search)
           <div className='mt-10'>
             <TextInput
                 name="search"
+                isFocused={true}
                 value={search}
                 placeHolder="Search...."
                 className="mt-1 block w-full"
