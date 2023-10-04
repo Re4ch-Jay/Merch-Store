@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react'
 import React from 'react'
 
-export default function Navbar({open, setOpen, calculateTotalProduct}) {
+export default function Navbar({open, setOpen, calculateTotalProduct, categories}) {
   return (  
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -17,6 +17,13 @@ export default function Navbar({open, setOpen, calculateTotalProduct}) {
             </button>
             <div className="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                
+                <li className="flex justify-between items-center gap-5">
+                    {categories.map(category => (
+                        <Link key={category.id} className='text-white' href={'?category='+category.name}>{category.name}</Link>
+                    ))}
+                </li>
+                
                 <li>
                    <CartButton open={open} setOpen={setOpen} calculateTotalProduct={calculateTotalProduct}/>
                 </li>

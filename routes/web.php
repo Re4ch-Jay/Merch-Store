@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
+use App\Models\Category;
 use App\Models\Product;
 
 /*
@@ -28,14 +29,7 @@ use App\Models\Product;
 //     ]);
 // });
 
-Route::get('/', function() {
-    $products = Product::query()->with('category')->get();
-    return Inertia::render('Product/Index', ['products' => $products]);
-});
-
-Route::get('/checkout', function() {
-    return Inertia::render('Checkout/Index');
-})->name('checkout.index');
+Route::get('/', [ProductController::class, 'index'])->name('products');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
