@@ -25,7 +25,7 @@ export default function Navbar({open, setOpen, calculateTotalProduct, categories
                 </li>
                 
                 <li>
-                   <CartButton open={open} setOpen={setOpen} calculateTotalProduct={calculateTotalProduct}/>
+                   <CartButton setOpen={setOpen} calculateTotalProduct={calculateTotalProduct}/>
                 </li>
             </ul>
             </div>
@@ -35,13 +35,12 @@ export default function Navbar({open, setOpen, calculateTotalProduct, categories
   )
 }
 
-const CartButton = ({open, setOpen, calculateTotalProduct}) => {
+const CartButton = ({setOpen, calculateTotalProduct}) => {
     return (
       
     <button onClick={() => setOpen(true)}  type="button" class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200">
         My Cart {calculateTotalProduct()}
     </button>
-    // <Link href={route('checkout.index')} className='text-white'>Cart</Link>
        
     )
 }

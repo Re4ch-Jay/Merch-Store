@@ -1,4 +1,5 @@
 import Modal from '@/Components/Modal';
+import { Link } from '@inertiajs/react';
 import React, { useState } from 'react'
 
 export default function ProductCard({
@@ -10,9 +11,9 @@ export default function ProductCard({
   return (
     <>
     <div className="w-full max-w-sm bg-white border rounded-lg shadow border-gray-700">
-        <a href="#">
+        <Link href={route('products.show', product.id)}>
             <img className="p-8 rounded-t-lg" src="https://m.media-amazon.com/images/I/7177d0aFt6L._AC_UY1100_.jpg" alt="product image" />
-        </a>
+        </Link>
         <div className="px-5 pb-5">
             <a href="#">
                 <h5 className="text-xl font-semibold tracking-tight text-gray-90">{ product.name }</h5>

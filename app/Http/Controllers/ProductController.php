@@ -21,6 +21,13 @@ class ProductController extends Controller
         ]);
     }   
 
+    public function show(Product $product) {
+        return Inertia::render('Product/Show', [
+            'product' => $product->load('category'),
+            'categories' => Category::all(),
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

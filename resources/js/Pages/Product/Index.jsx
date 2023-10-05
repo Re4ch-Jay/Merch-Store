@@ -1,19 +1,18 @@
 
 import useCart from '@/hooks/useCart';
-import React, { useState, useEffect } from 'react';
 import ProductCard from './partials/ProductCard';
 import Navbar from '@/Layouts/Navbar';
 import Footer from '@/Layouts/Footer';
 import Checkout from './Checkout';
-import { Head, router } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import TextInput from '@/Components/TextInput';
 import useSearch from '@/hooks/useSearch';
+import useOpen from '@/hooks/useOpen';
 
 function Index({products, categories, filters}) {
 
-  const [open, setOpen] = useState(false);
+  const {open, setOpen} = useOpen();
   const {search, handleSearch} = useSearch(filters);
-
   const { 
     cart, 
     addToCart,
@@ -23,6 +22,7 @@ function Index({products, categories, filters}) {
     calculateTotalPrice,
     calculateTotalProduct 
   } = useCart();
+  
 
   return (
     <div>
