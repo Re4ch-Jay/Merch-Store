@@ -6,14 +6,14 @@ import Navbar from '@/Layouts/Navbar';
 import Footer from '@/Layouts/Footer';
 import Checkout from './Checkout';
 import { Head, router } from '@inertiajs/react';
-import SearchBar from '@/Components/SearchBar';
 import TextInput from '@/Components/TextInput';
+import useSearch from '@/hooks/useSearch';
 
 function Index({products, categories, filters}) {
 
   const [open, setOpen] = useState(false);
-  const [search, setSearch] = useState(filters.search);
-  
+  const {search, handleSearch} = useSearch(filters);
+
   const { 
     cart, 
     addToCart,
@@ -23,18 +23,6 @@ function Index({products, categories, filters}) {
     calculateTotalPrice,
     calculateTotalProduct 
   } = useCart();
-  
-  const handleSearch = (search) => {
-    setSearch(search)
-      router.get(route(route().current()), 
-        { search: search }, 
-        { 
-          preserveState: true,
-          replace: true,
-
-        }
-      );
-  }
 
   return (
     <div>
