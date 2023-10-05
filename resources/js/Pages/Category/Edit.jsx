@@ -3,7 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
 
-function Edit({auth, categories, product}) {
+function Edit({auth, category}) {
     
     return (
         <AuthenticatedLayout
@@ -13,7 +13,7 @@ function Edit({auth, categories, product}) {
             <Head title="Product Create" />
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">   
-                    <EditForm product={product} categories={categories}/>
+                    <EditForm category={category}/>
                 </div>
             </div>
 

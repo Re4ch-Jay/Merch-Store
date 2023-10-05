@@ -1,16 +1,14 @@
 import React from 'react'
-import { useEffect } from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Head, Link, useForm } from '@inertiajs/react';
+import {  useForm } from '@inertiajs/react';
 import SelectInput from '@/Components/SelectInput';
 
-export default function Form({product, categories}) {
+export default function EditForm({product, categories}) {
     
-    const { data, setData, put, processing, errors, reset } = useForm({
+    const { data, setData, put, errors } = useForm({
         name: product.name,
         description: product.description,
         price: product.price,
