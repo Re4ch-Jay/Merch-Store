@@ -5,15 +5,15 @@ import ProductCard from './partials/ProductCard';
 import Navbar from '@/Layouts/Navbar';
 import Footer from '@/Layouts/Footer';
 import Checkout from './Checkout';
-import { Head } from '@inertiajs/react';
+import { Head, router } from '@inertiajs/react';
 import SearchBar from '@/Components/SearchBar';
 import TextInput from '@/Components/TextInput';
-import { Inertia } from "@inertiajs/inertia";
 
 function Index({products, categories, filters}) {
 
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState(filters.search);
+  
   const { 
     cart, 
     addToCart,
@@ -24,10 +24,9 @@ function Index({products, categories, filters}) {
     calculateTotalProduct 
   } = useCart();
   
-
   const handleSearch = (search) => {
-      setSearch(search)
-      Inertia.get(route(route().current()), 
+    setSearch(search)
+      router.get(route(route().current()), 
         { search: search }, 
         { 
           preserveState: true,

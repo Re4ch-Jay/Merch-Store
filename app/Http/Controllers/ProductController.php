@@ -8,16 +8,18 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    
     public function index() {
         return Inertia::render('Product/Index', [
             'products' => Product::query()->filter(request(['category', 'search']))->with('category')->get(),
             'categories' => Category::all(),
             'filters' => request()->only(['search'])
         ]);
-    }
+    }   
 
     /**
      * Show the form for creating a new resource.
