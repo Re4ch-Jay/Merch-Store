@@ -44,6 +44,10 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [ProductController::class, 'index'])->name('products');
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-
+Route::get('/checkout', function() {
+    return Inertia::render('Checkout/Index', [
+        'categories' => Category::all(),
+    ]);
+})->name('checkout.index');
 
 require __DIR__.'/auth.php';

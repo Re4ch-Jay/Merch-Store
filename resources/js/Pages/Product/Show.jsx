@@ -4,7 +4,7 @@ import useCart from '@/hooks/useCart'
 import Navbar from '@/Layouts/Navbar'
 import useOpen from '@/hooks/useOpen'
 import Footer from '@/Layouts/Footer'
-import Checkout from './Checkout';
+import ShoppingCart from './partials/ShoppingCart';
 import useShowMessage from '@/hooks/useShowMessage'
 import Modal from '@/Components/Modal'
 
@@ -65,7 +65,7 @@ export default function Show({product, categories}) {
         </section>
 
         {
-          open && <Checkout
+          open && <ShoppingCart
                   setOpen={setOpen}
                   cart={cart} 
                   removeFromCart={removeFromCart} 

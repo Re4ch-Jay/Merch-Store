@@ -3,8 +3,8 @@ import useCart from '@/hooks/useCart';
 import ProductCard from './partials/ProductCard';
 import Navbar from '@/Layouts/Navbar';
 import Footer from '@/Layouts/Footer';
-import Checkout from './Checkout';
-import { Head } from '@inertiajs/react';
+import ShoppingCart from './partials/ShoppingCart';
+import { Head, Link } from '@inertiajs/react';
 import TextInput from '@/Components/TextInput';
 import useSearch from '@/hooks/useSearch';
 import useOpen from '@/hooks/useOpen';
@@ -43,14 +43,11 @@ function Index({products, categories, filters}) {
           <div className="py-12">
             <div className="grid grid-cols-3 gap-11 ">
                 {products.map(product => (
-                  <div key={product.id}>
-
+                  <Link href={route('products.show', product.id)} key={product.id}>
                     <ProductCard 
                     product={product} 
-                    addToCart={addToCart} 
                     />
-            
-                  </div>
+                  </Link>
                 ))}
             </div>
           </div>
@@ -58,7 +55,7 @@ function Index({products, categories, filters}) {
         </div>
   
         {
-          open && <Checkout 
+          open && <ShoppingCart 
                   setOpen={setOpen}
                   cart={cart} 
                   removeFromCart={removeFromCart} 

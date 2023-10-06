@@ -2,6 +2,7 @@ import { Link } from '@inertiajs/react'
 import React from 'react'
 
 export default function Navbar({open, setOpen, calculateTotalProduct, categories}) {
+ 
   return (  
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -20,13 +21,16 @@ export default function Navbar({open, setOpen, calculateTotalProduct, categories
                 
                 <li className="flex justify-between items-center gap-5">
                     {categories.map(category => (
-                        <Link key={category.id} className='text-white' href={'?category='+category.name}>{category.name}</Link>
+                        <Link key={category.id} className='text-white' href={'/?category='+category.name}>{category.name}</Link>
                     ))}
                 </li>
+                {window.location.pathname !== '/checkout' && 
+                    <li>
+                    <CartButton setOpen={setOpen} calculateTotalProduct={calculateTotalProduct}/>
+                    </li>
+                }
                 
-                <li>
-                   <CartButton setOpen={setOpen} calculateTotalProduct={calculateTotalProduct}/>
-                </li>
+
             </ul>
             </div>
         </div>

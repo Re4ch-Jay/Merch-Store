@@ -1,7 +1,8 @@
 import React from 'react';
-import ProductList from './partials/ProductList';
+import ProductList from './ProductList';
+import { Link } from '@inertiajs/react';
 
-function Checkout({setOpen,
+function ShoppingCart({setOpen,
                   cart,
                   removeFromCart,
                   incrementQuantity,
@@ -67,7 +68,7 @@ function Checkout({setOpen,
                   </div>
                   <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                   <div className="mt-6">
-                    <a href="#" className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                    <Link href={route('checkout.index')} className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">View Checkout</Link>
                   </div>
                   <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                     <p>
@@ -88,4 +89,4 @@ function Checkout({setOpen,
   );
 }
 
-export default Checkout;
+export default ShoppingCart;
