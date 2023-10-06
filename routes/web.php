@@ -30,10 +30,6 @@ use App\Models\Product;
 //     ]);
 // });
 
-Route::get('/', [ProductController::class, 'index'])->name('products');
-Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -45,5 +41,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('categories', CategoryController::class);
 
 });
+
+Route::get('/', [ProductController::class, 'index'])->name('products');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+
 
 require __DIR__.'/auth.php';

@@ -23,7 +23,7 @@ export default function Table({products}) {
                             <tr key={product.id}>
                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{index + 1}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{product.name}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{product.price}</td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">${product.price}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{product.category.name}</td>
                             <td className="px-6 py-4 whitespace-nowrap flex flex-row justify-between text-sm font-medium">
                                 <Link href={route('products.edit', product.id)} className="text-blue-500 hover:text-bluered-700">Edit</Link>

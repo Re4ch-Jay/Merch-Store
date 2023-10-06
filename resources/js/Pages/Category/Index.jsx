@@ -1,6 +1,7 @@
 
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
+import Table from './partials/Table';
 
 export default function Index({auth, categories}) {
 console.log(categories)
@@ -14,13 +15,7 @@ console.log(categories)
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <Link href={route('categories.create')}>Upload new category</Link>
-                    {
-                        categories.map(category => (
-                            <Link href={route('categories.destroy', category.id)} method='delete' key={category.id}>
-                                {category.name}
-                            </Link>
-                        ))
-                    }
+                    <Table categories={categories}/>
                 </div>
             </div>
         </AuthenticatedLayout>

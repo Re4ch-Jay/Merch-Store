@@ -1,4 +1,5 @@
 import Modal from '@/Components/Modal';
+import useShowMessage from '@/hooks/useShowMessage';
 import { Link } from '@inertiajs/react';
 import React, { useState } from 'react'
 
@@ -6,7 +7,7 @@ export default function ProductCard({
     product, 
     addToCart, 
 }) {
-    const [message, setMessage] = useState(false)
+   const {message, setMessage} = useShowMessage();
 
   return (
     <>
@@ -32,7 +33,6 @@ export default function ProductCard({
         <h2 className="text-center text-4xl font-medium text-gray-900">
             Successfully added to cart
         </h2>
-
     </Modal>
     </>
   )

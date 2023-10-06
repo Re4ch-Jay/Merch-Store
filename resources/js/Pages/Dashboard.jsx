@@ -1,4 +1,4 @@
-import Table from '@/Components/Table';
+import Table from '@/Pages/Product/partials/Table';
 import TextInput from '@/Components/TextInput';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import useSearch from '@/hooks/useSearch';
