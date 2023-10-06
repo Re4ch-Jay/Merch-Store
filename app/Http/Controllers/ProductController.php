@@ -25,6 +25,7 @@ class ProductController extends Controller
         return Inertia::render('Product/Show', [
             'product' => $product->load('category'),
             'categories' => Category::all(),
+            'features' => Product::query()->with(['category'])->latest()->take(5)->get(),
         ]);
     }
 

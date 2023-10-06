@@ -1,5 +1,5 @@
 import React from 'react'
-import { Head } from '@inertiajs/react'
+import { Head, Link } from '@inertiajs/react'
 import useCart from '@/hooks/useCart'
 import Navbar from '@/Layouts/Navbar'
 import useOpen from '@/hooks/useOpen'
@@ -7,8 +7,9 @@ import Footer from '@/Layouts/Footer'
 import ShoppingCart from './partials/ShoppingCart';
 import useShowMessage from '@/hooks/useShowMessage'
 import Modal from '@/Components/Modal'
+import ProductCard from './partials/ProductCard'
 
-export default function Show({product, categories}) {
+export default function Show({product, categories, features}) {
     const {open, setOpen} = useOpen();
     const {message, setMessage} = useShowMessage();
     const {cart, addToCart, calculateTotalProduct, removeFromCart, incrementQuantity, decrementQuantity, calculateTotalPrice} = useCart();
@@ -60,6 +61,19 @@ export default function Show({product, categories}) {
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className='container px-5 py-24 mx-auto'>
+            <h3 className='text-gray-900 text-2xl font-bold mb-3'>You Might Also Like</h3>
+            <div className='grid grid-cols-5 gap-5'>
+              {features.map(feature => (
+                  <Link key={feature.id} href={route('products.show', feature.id)}>
+                    <ProductCard  product={feature} />
+                  </Link>
+              ))}
             </div>
           </div>
         </section>

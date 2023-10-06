@@ -2,12 +2,13 @@ import { Link } from '@inertiajs/react';
 
 export default function ProductCard({
     product, 
+    ...props
 }) {
 
 
   return (
     <>
-    <div className="w-full max-w-sm bg-white border rounded-lg shadow border-gray-700">
+    <div {...props} className="w-full max-w-sm bg-white border rounded-lg shadow border-gray-700">
         
         <img className="p-8 rounded-t-lg" src="https://m.media-amazon.com/images/I/7177d0aFt6L._AC_UY1100_.jpg" alt="product image" />
      
